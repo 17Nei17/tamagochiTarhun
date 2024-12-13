@@ -3,21 +3,21 @@ import { EventButton } from './EventButton';
 
 export function GameField(props) {
     return (
-        <div className='game-field'>
+        <div className='game-buttons-wrap'>
             <div>Текущее время {props.currentDateObj.getHours()}:{props.currentDateObj.getMinutes()}:{props.currentDateObj.getSeconds()}</div>
             <EventButton
-                currentDateObj={props.currentDateObj}
                 setNewValue={props.setCurrentHunger}
                 stats={props.hunger}
-                timeForUpdate={1000}
                 text="Покормить"
+                setLocation={props.setLocation}
+                locationName='leKirillBaguette'
             ></EventButton>
             <EventButton
-                currentDateObj={props.currentDateObj}
                 setNewValue={props.setCurrentSleep}
                 stats={props.sleep}
-                timeForUpdate={2000}
                 text="Положить спать"
+                setLocation={props.setLocation}
+                locationName='sleep'
             ></EventButton>
         </div>
     );

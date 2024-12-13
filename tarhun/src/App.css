@@ -8,4 +8,34 @@
   width: 500px;
   height: 300px;
   background-color: wheat;
+  position: relative;
+}
+
+.kirillArt {
+  width: auto;
+  height: inherit;
+  position: absolute;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.return-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.flex-center {
+  align-items: center;
+}
+
+.list {
+  z-index: 1;
+  background: white;
+  width: 300px;
+  opacity: 0.8;
+  padding: 20px;
 }

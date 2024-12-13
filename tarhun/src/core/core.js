@@ -11,7 +11,7 @@ export function setDateInLS(dateObj,health, sleep, hunger) {
 export function initNewGame(dateObj) {
     // если не нашел данных
     localStorage.setItem("date", dateObj);
-    localStorage.setItem("health", 10);
-    localStorage.setItem("sleep", 10);
-    localStorage.setItem("hunger", 10);
+    localStorage.setItem("health", 100);
+    localStorage.setItem("sleep", 100);
+    localStorage.setItem("hunger", 100);
 }

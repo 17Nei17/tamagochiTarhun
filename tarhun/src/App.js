@@ -4,6 +4,8 @@ import { GameField } from './gameField/GameField';
 import { GameStats } from './gameStats/GameStats';
 import { setDateInLS } from './core/core';
 import { initNewGame } from './core/core';
+import { LeKirillBaguette } from './gameField/LeKirillBaguette'
+import { TarhunHome } from './gameField/TarhunHome'
 
 function App() {
   const [currentDateObj, setCurrentDateObj] = useState(new Date());
@@ -13,6 +15,7 @@ function App() {
   const [health, setCurrentHealth] = useState(localStorage.getItem("health"));
   const [sleep, setCurrentSleep] = useState(localStorage.getItem("sleep"));
   const [hunger, setCurrentHunger] = useState(localStorage.getItem("hunger"));
+  const [location, setLocation] = useState('tarhunHome');
 
   useEffect(() => {
     setInterval(() => {
@@ -33,10 +36,16 @@ function App() {
           sleep={sleep}
           health={health}
           setCurrentHunger={setCurrentHunger}
-          setCurrentHealth={setCurrentHealth}
           setCurrentSleep={setCurrentSleep}
-        ></GameField>
-        <GameStats currentDateObj={currentDateObj} health={health} sleep={sleep} hunger={hunger}></GameStats>
+          setCurrentHealth={setCurrentHealth}
+          setLocation={setLocation}
+        >
+        </GameField >
+        {location == 'leKirillBaguette' && <LeKirillBaguette setLocation={setLocation} locationName="tarhunHome"  hunger={hunger} setCurrentHunger={setCurrentHunger}></LeKirillBaguette>}
+        {location == 'tarhunHome' && <TarhunHome setLocation={setLocation}></TarhunHome>}
+        <GameStats currentDateObj={currentDateObj} stats={hunger} setCurrentStats={setCurrentHunger} timeForUpdate="1000" statsName="Голод"></GameStats>
+        <GameStats currentDateObj={currentDateObj} stats={sleep} setCurrentStats={setCurrentSleep} timeForUpdate="2000" statsName="Сонливость"></GameStats>
+        <GameStats currentDateObj={currentDateObj} stats={health} setCurrentStats={setCurrentHealth} timeForUpdate="3000" statsName="Здоровье"></GameStats>
       </header>
     </div>
   );
